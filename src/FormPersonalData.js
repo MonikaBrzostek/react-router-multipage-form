@@ -1,67 +1,61 @@
 import React from 'react'
-import './FormPersonalData.css'
+import './Main.css'
 import { useState } from 'react'
 
 export default function FormPersonalData(props) {
-  const [name, setName] = useState('')
-  const [surname, setSurname] = useState('')
-  const [age, setAge] = useState(0)
+  const [formData, setFormData] = useState({ name: '', surname: '', age: '' })
 
-  const handleChangeName = (e) => {
-    setName(e.target.value)
-    console.log(name)
-  }
-
-  const handleChangeSurname = (e) => {
-    setSurname(e.target.value)
-    console.log(surname)
-  }
-
-  const handleChangeAge = (e) => {
-    setAge(e.target.value)
-    console.log(age)
+  const handleChangeData = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleClick = () => {
-    if (name === '' || surname === '' || age === 0) {
+    if (
+      formData.name === '' ||
+      formData.surname === '' ||
+      formData.age === ''
+    ) {
       alert('Please fill out all the fields in the form')
     } else {
-      props.history.push('/address', { name, surname, age })
+      props.history.push('/address', { formData })
     }
   }
 
   return (
-    <div>
-      <form>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            onChange={handleChangeName}
-            value={name}
-          />
-        </label>
-        <label>
-          Surname:
-          <input
-            type="text"
-            name="surname"
-            onChange={handleChangeSurname}
-            value={surname}
-          />
-        </label>
-        <label>
-          Age:
-          <input
-            type="number"
-            name="age"
-            onChange={handleChangeAge}
-            value={age}
-          />
-        </label>
-        <button onClick={handleClick}>Continue</button>
-      </form>
-    </div>
+    <>
+      <h1>Multipage form using React Router</h1>
+      <div className="form-div">
+        <form>
+          <label>
+            Name:
+            <input
+              type="text"
+              name="name"
+              onChange={handleChangeData}
+              value={formData.name}
+            />
+          </label>
+          <label>
+            Surname:
+            <input
+              type="text"
+              name="surname"
+              onChange={handleChangeData}
+              value={formData.surname}
+            />
+          </label>
+          <label>
+            Age:
+            <input
+              type="number"
+              name="age"
+              onChange={handleChangeData}
+              value={formData.age}
+            />
+          </label>
+          <button onClick={handleClick}>Continue</button>
+        </form>
+      </div>
+    </>
   )
 }

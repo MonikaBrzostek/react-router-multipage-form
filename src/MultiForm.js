@@ -7,15 +7,7 @@ import './MultiForm.css'
 
 export default function MultiForm() {
   return (
-    //zmienilam sciezke personal data, zeby byla pierwsza, ktora sie laduje
-    //jak chciales to rozwiazac?
     <Router>
-      {/* <nav>
-        <Link to="/">1</Link>
-        <Link to="/address">2</Link>
-        <Link to="/summary">3</Link>
-      </nav> */}
-
       <Switch>
         <Route exact path="/" component={FormPersonalData} />
         <Route path="/address" component={FormAddress} />
