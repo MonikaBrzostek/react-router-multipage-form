@@ -1,4 +1,4 @@
-# react-router-form
+# react-router-multipage-form
 React multipage form using React Router.
 
 
@@ -15,8 +15,8 @@ Monika Brzostek
 
 ```bash
 
-git clone https://github.com/MonikaBrzostek/react-router-form.git
-cd react-router-form
+git clone https://github.com/MonikaBrzostek/react-router-multipage-form.git
+cd react-router-multipage-form
 npm install
 ```
 
